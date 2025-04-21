@@ -2,6 +2,7 @@
 
 ## Dependencies
 - [neovim](https://neovim.io/)
+- [vectorcode](https://github.com/Davidyz/VectorCode)
 
 ## Installation
 ### Clone and link the configuration files
