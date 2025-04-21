@@ -9,6 +9,9 @@ return {
 	},
 	opts = {
 		strategies = {
+			inline = {
+				adapter = "deepseek",
+			},
 			chat = {
 				selection_strategy = "telescope",
 				adapter = "deepseek",
