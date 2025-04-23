@@ -9,7 +9,6 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 		vim.diagnostic.config({
 			float = {
 				border = "rounded",
@@ -29,9 +28,8 @@ return {
 				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+				map("<leader>a", vim.lsp.buf.code_action, "[L]SP [A]ction")
 				map("K", vim.lsp.buf.hover, "Hover Documentation")
-				map("<leader>d", vim.diagnostic.open_float, "Open [D]iagnostic")
 				map("<leader>wd", require("telescope.builtin").diagnostics, "[W]orkspace [D]iagnostics")
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				if client and client.server_capabilities.documentHighlightProvider then

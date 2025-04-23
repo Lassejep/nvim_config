@@ -16,6 +16,7 @@ return {
 				chat = {
 					selection_strategy = "telescope",
 					adapter = "deepseek",
+					show_token_count = true,
 					tools = {
 						vectorcode = {
 							description = "Run VectorCode to retrieve the project context.",
@@ -40,20 +41,24 @@ return {
 									)
 								end
 							end,
-							opts = {
-								contains_code = false,
-							},
+							opts = { contains_code = false },
 						},
 					},
 					keymaps = {
-						close = {
-							modes = { n = "q", i = "<C-c>" },
-						},
+						close = { modes = { n = "q", i = "<C-c>" } },
+						stop = { modes = { n = "<leader>cs", i = "<C-s>" } },
+						regenerate = { modes = { n = "<leader>cr", i = "<C-r>" } },
+						codeblock = { modes = { n = "<leader>ci", i = "<C-i>" } },
+						fold_code = { modes = { n = "<leader>cf", i = "<C-f>" } },
+						debug = { modes = { n = "<leader>cd", i = "<C-d>" } },
+						yank_code = { modes = { n = "<leader>cy", i = "<C-y>" } },
 					},
-					show_token_count = true,
 				},
 			},
 		}
 	end,
-	keys = { { "<leader>cc", vim.cmd.CodeCompanionChat, desc = "[C]odeCompanion[C]hat" } },
+	keys = {
+		{ "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", desc = "[C]odeCompanion[C]hat" },
+		{ "<leader>ca", "<cmd>CodeCompanionActions<cr>", desc = "[C]odeCompanion[A]ctions" },
+	},
 }

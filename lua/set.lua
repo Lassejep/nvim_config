@@ -32,7 +32,6 @@ vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.sidescrolloff = 16
-vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 
 vim.opt.splitright = true
