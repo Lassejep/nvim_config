@@ -1,3 +1,21 @@
+local git_files_command = {
+	["gitfiles"] = {
+		description = "List git files",
+		---@param chat CodeCompanion.Chat
+		callback = function(chat)
+			local handle = io.popen("git ls-files")
+			if handle ~= nil then
+				local result = handle:read("*a")
+				handle:close()
+				chat:add_reference({ role = "user", content = result }, "git", "<git_files>")
+			else
+				return vim.notify("No git files available", vim.log.levels.INFO, { title = "CodeCompanion" })
+			end
+		end,
+		opts = { contains_code = false },
+	},
+}
+
 return {
 	-- AI integration
 	"olimorris/codecompanion.nvim",
@@ -23,27 +41,7 @@ return {
 							callback = require("vectorcode.integrations").codecompanion.chat.make_tool({}),
 						},
 					},
-					slash_commands = {
-						["gitfiles"] = {
-							description = "List git files",
-							---@param chat CodeCompanion.Chat
-							callback = function(chat)
-								local handle = io.popen("git ls-files")
-								if handle ~= nil then
-									local result = handle:read("*a")
-									handle:close()
-									chat:add_reference({ role = "user", content = result }, "git", "<git_files>")
-								else
-									return vim.notify(
-										"No git files available",
-										vim.log.levels.INFO,
-										{ title = "CodeCompanion" }
-									)
-								end
-							end,
-							opts = { contains_code = false },
-						},
-					},
+					slash_commands = git_files_command,
 					keymaps = {
 						close = { modes = { n = "q", i = "<C-c>" } },
 						stop = { modes = { n = "<leader>cs", i = "<C-s>" } },
