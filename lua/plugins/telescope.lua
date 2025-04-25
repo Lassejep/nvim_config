@@ -27,5 +27,6 @@ return {
 		{ "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Telescope [P]roject [F]iles" },
 		{ "<leader>pw", "<cmd>Telescope grep_string<cr>", desc = "Telescope [P]roject [W]ord" },
 		{ "<leader>ps", "<cmd>Telescope live_grep<cr>", desc = "Telescope [P]roject [S]earch" },
+		{ "<leader>pb", "<cmd>Telescope buffers<cr>", desc = "Telescope [P]roject [B]uffers" },
 	},
 }
