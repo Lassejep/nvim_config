@@ -3,6 +3,7 @@
 ## Dependencies
 - [neovim](https://neovim.io/)
 - [vectorcode](https://github.com/Davidyz/VectorCode)
+- [yarn](https://yarnpkg.com/)
 
 ## Installation
 ### Clone and link the configuration files
