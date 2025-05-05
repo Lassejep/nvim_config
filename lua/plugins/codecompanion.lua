@@ -1,6 +1,6 @@
 local function get_slash_commands()
 	return {
-		["gitfiles"] = {
+		gitfiles = {
 			description = "List git files",
 			---@param chat CodeCompanion.Chat
 			callback = function(chat)
@@ -26,6 +26,7 @@ local function get_chat_keymaps()
 		codeblock = { modes = { n = "<leader>ci", i = "<C-i>" } },
 		debug = { modes = { n = "<leader>cd", i = "<C-d>" } },
 		yank_code = { modes = { n = "<leader>cy", i = "<C-y>" } },
+		clear = { modes = { n = "<leader>cx", i = "<C-x>" } },
 	}
 end
 
@@ -49,9 +50,25 @@ local function get_chat_config()
 	}
 end
 
+local function get_inline_keymaps()
+	return {
+		accept_change = { modes = { n = "<leader>cy" }, description = "Accept the suggested change" },
+		reject_change = { modes = { n = "<leader>cn" }, description = "Reject the suggested change" },
+	}
+end
+
 local function get_inline_config()
 	return {
 		adapter = "deepseek",
+		keymaps = get_inline_keymaps(),
+	}
+end
+
+local function get_diplay_config()
+	return {
+		diff = {
+			enabled = false,
+		},
 	}
 end
 
@@ -65,6 +82,7 @@ return {
 	},
 	opts = function()
 		return {
+			display = get_diplay_config(),
 			strategies = {
 				inline = get_inline_config(),
 				chat = get_chat_config(),
