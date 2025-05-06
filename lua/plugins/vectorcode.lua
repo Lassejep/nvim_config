@@ -1,7 +1,7 @@
 return {
 	"Davidyz/VectorCode",
-	version = "*", -- optional, depending on whether you're on nightly or release
+	version = "*",
 	build = "pipx upgrade vectorcode",
 	dependencies = { "nvim-lua/plenary.nvim" },
-	cmd = "VectorCode", -- if you're lazy-loading VectorCode
+	cmd = "VectorCode",
 }
