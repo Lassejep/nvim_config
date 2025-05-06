@@ -32,41 +32,6 @@ local function get_lsp_keybinds(event)
 	vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show [D]iagnostic error messages" })
 end
 
-local function get_lua_ls_config()
-	return {
-		settings = {
-			Lua = {
-				format = {
-					enable = true,
-					defaultConfig = {
-						indent_style = "Spaces",
-						indent_size = "2",
-					},
-					format = "stylua --indent-type Spaces --indent-width 2 -",
-				},
-				completion = { callSnippet = "Replace" },
-			},
-		},
-	}
-end
-
-local function get_pylsp_config()
-	return {
-		settings = {
-			pylsp = {
-				plugins = {
-					black = { enabled = true },
-					mypy = { enabled = true },
-					pycodestyle = { enabled = false },
-					autopep8 = { enabled = true, maxLineLength = 88 },
-					isort = { enabled = true, profile = "black" },
-					flake8 = { enabled = true, maxLineLength = 88, ignore = { "E203", "E701", "W503" } },
-				},
-			},
-		},
-	}
-end
-
 return {
 	-- LSP plugin.
 	"neovim/nvim-lspconfig",
@@ -78,11 +43,7 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		vim.diagnostic.config({
-			float = {
-				border = "rounded",
-			},
-		})
+		vim.diagnostic.config({ float = { border = "rounded" } })
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
@@ -91,18 +52,14 @@ return {
 		})
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		local servers = {
-			lua_ls = get_lua_ls_config(),
-			pylsp = get_pylsp_config(),
-			clangd = { cmd = { "clangd", "--fallback-style=LLVM" } },
+			lua_ls = require("plugins.lsp_configs.lua_ls"),
+			pylsp = require("plugins.lsp_configs.pylsp"),
+			clangd = require("plugins.lsp_configs.clangd"),
 		}
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			automatic_installation = true,
-			ensure_installed = {
-				"lua_ls",
-				clangd = { cmd = { "clangd", "--fallback-style=LLVM" } },
-				"pylsp",
-			},
+			ensure_installed = { "lua_ls", "clangd", "pylsp" },
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
