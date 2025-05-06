@@ -31,5 +31,6 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 16
 
 require("lazy_init")
