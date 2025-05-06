@@ -29,6 +29,7 @@ local function get_lsp_keybinds(event)
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 		end, "[T]oggle Inlay [H]ints")
 	end
+	vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show [D]iagnostic error messages" })
 end
 
 local function get_lua_ls_config()

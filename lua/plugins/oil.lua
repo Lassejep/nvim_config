@@ -1,6 +1,8 @@
 return {
 	-- Better File Explorer
 	"stevearc/oil.nvim",
+	---@module "oil"
+	---@type oil.setupOpts
 	opts = {
 		default_file_explorer = true,
 		view_options = {
@@ -23,5 +25,9 @@ return {
 			["g\\"] = "actions.toggle_trash",
 		},
 	},
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "echasnovski/mini.icons" },
+	keys = {
+		{ "<leader>pv", "<cmd>Oil<cr>", desc = "[P]roject [V]iew" },
+	},
+	lazy = false,
 }
