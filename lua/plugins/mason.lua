@@ -1,5 +1,5 @@
 return {
-	"williamboman/mason.nvim",
+  "williamboman/mason.nvim",
   init = function()
     require("mason").setup()
   end,

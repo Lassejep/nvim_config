@@ -1,5 +1,5 @@
 return {
-	-- Horizontal scrolling while writing
-	"Aasim-A/scrollEOF.nvim",
-	opts = {},
+  -- Horizontal scrolling while writing
+  "Aasim-A/scrollEOF.nvim",
+  opts = {},
 }
