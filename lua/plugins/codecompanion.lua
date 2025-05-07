@@ -1,6 +1,5 @@
 return {
 	"olimorris/codecompanion.nvim",
-	config = true,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
@@ -40,6 +39,7 @@ return {
 			},
 		}
 	end,
+
 	keys = {
 		{ "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", desc = "[C]odeCompanion[C]hat" },
 		{ "<leader>ca", "<cmd>CodeCompanionActions<cr>", desc = "[C]odeCompanion[A]ctions" },

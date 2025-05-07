@@ -13,7 +13,7 @@ return {
 			end,
 		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
-		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+		{ "mini.icons", enabled = vim.g.have_nerd_font },
 	},
 	opts = {
 		extensions = { ["ui-select"] = { require("telescope.themes").get_dropdown() } },
@@ -25,7 +25,6 @@ return {
 	end,
 	keys = {
 		{ "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Telescope [P]roject [F]iles" },
-		{ "<leader>pw", "<cmd>Telescope grep_string<cr>", desc = "Telescope [P]roject [W]ord" },
 		{ "<leader>ps", "<cmd>Telescope live_grep<cr>", desc = "Telescope [P]roject [S]earch" },
 		{ "<leader>pb", "<cmd>Telescope buffers<cr>", desc = "Telescope [P]roject [B]uffers" },
 	},

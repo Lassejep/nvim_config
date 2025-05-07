@@ -1,6 +1,9 @@
 return {
 	-- Better File Explorer
 	"stevearc/oil.nvim",
+	dependencies = { "echasnovski/mini.icons" },
+	lazy = false,
+
 	---@module "oil"
 	---@type oil.setupOpts
 	opts = {
@@ -25,9 +28,8 @@ return {
 			["g\\"] = "actions.toggle_trash",
 		},
 	},
-	dependencies = { "echasnovski/mini.icons" },
+
 	keys = {
 		{ "<leader>pv", "<cmd>Oil<cr>", desc = "[P]roject [V]iew" },
 	},
-	lazy = false,
 }

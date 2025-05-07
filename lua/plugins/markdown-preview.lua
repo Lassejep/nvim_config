@@ -13,5 +13,5 @@ return {
 		vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
 	end,
 	ft = { "markdown" },
-	keys = { { "<leader>mp", vim.cmd.MarkdownPreview, desc = "Markdown [P]review" } },
+	keys = { { "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown [P]review" } },
 }

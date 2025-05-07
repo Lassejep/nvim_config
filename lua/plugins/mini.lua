@@ -2,7 +2,7 @@ return {
 	-- Collection of smaller QOL plugins.
 	"echasnovski/mini.nvim",
 	version = false,
-	config = function()
+	init = function()
 		require("mini.basics").setup()
 		require("mini.keymap").setup()
 		require("mini.ai").setup({ n_lines = 500 })
