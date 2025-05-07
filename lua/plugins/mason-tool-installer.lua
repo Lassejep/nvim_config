@@ -8,6 +8,7 @@ return {
         "stylua",
         "clang-format",
         "black",
+        "isort",
         "prettier",
         "mypy",
       },

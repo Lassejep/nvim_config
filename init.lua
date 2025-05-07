@@ -32,5 +32,6 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 16
+vim.diagnostic.config({ float = { border = "rounded" } })
 
 require("lazy_init")

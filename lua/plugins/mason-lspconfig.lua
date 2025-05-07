@@ -4,11 +4,7 @@ return {
 
   opts = function()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    local servers = {
-      lua_ls = require("plugins.lsp_configs.lua_ls"),
-      pylsp = require("plugins.lsp_configs.pylsp"),
-      clangd = require("plugins.lsp_configs.clangd"),
-    }
+    local servers = {}
 
     return {
       automatic_installation = true,
