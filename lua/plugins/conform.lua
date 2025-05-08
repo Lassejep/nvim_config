@@ -9,13 +9,12 @@ return {
   opts = {
     notify_on_error = true,
     formatters_by_ft = {
-      lua = { "stylua" },
       python = { "isort", "black" },
-      markdown = { "prettier" },
+      lua = { "stylua" },
       cpp = { "clang-format" },
     },
     default_format_opts = { lsp_format = "fallback" },
-    format_on_save = { timeout_ms = 500 },
+    format_on_save = { timeout_ms = 500, async = false },
   },
 
   keys = {
