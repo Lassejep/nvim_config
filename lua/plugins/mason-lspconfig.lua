@@ -13,7 +13,13 @@ return {
     { "<leader>wd", "<cmd>Telescope diagnostics<cr>", { desc = "LSP: [W]orkspace [D]iagnostics" } },
     { "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: [R]e[n]ame" } },
     { "<leader>a", vim.lsp.buf.code_action, { desc = "LSP: code [A]ction" } },
-    { "<leader>K", vim.lsp.buf.hover, { desc = "LSP: Hover Documentation" } },
+    {
+      "K",
+      function()
+        vim.lsp.buf.hover({ border = "rounded", max_height = 25, max_width = 120 })
+      end,
+      { desc = "LSP: Hover Documentation" },
+    },
     { "<leader>d", vim.diagnostic.open_float, { desc = "LSP: Show [D]iagnostic error messages" } },
     {
       "<leader>th",
