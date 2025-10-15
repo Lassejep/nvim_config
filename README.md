@@ -4,12 +4,13 @@
 - [neovim](https://neovim.io/)
 - [vectorcode](https://github.com/Davidyz/VectorCode)
 - [yarn](https://yarnpkg.com/)
+- [git](https://git-scm.com/)
 
 ## Installation
 ### Clone and link the configuration files
 Make git folder and clone the configuration folder into it, then create a symbolic link from the config file to .config/nvim:
 ```bash
-mkdir ~/git
+mkdir -p ~/git
 git clone https://github.com/lassejep/nvim_config.git ~/git/
 ln -s ~/git/nvim_config ~/.config/nvim
 ```
