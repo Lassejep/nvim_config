@@ -1,5 +1,5 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
-  ft = { "codecompanion" },
+  ft = { "codecompanion", "markdown" },
   opts = {},
 }
