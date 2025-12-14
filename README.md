@@ -2,7 +2,6 @@
 
 ## Dependencies
 - [neovim](https://neovim.io/)
-- [vectorcode](https://github.com/Davidyz/VectorCode)
 - [yarn](https://yarnpkg.com/)
 - [git](https://git-scm.com/)
 - [stow](https://www.gnu.org/software/stow/)
