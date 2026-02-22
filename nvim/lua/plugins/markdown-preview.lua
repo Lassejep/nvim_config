@@ -1,17 +1,15 @@
 return {
   -- Markdown Preview
-  "iamcco/markdown-preview.nvim",
-  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-  build = "cd app && yarn install",
-  init = function()
-    vim.g.mkdp_filetypes = { "markdown" }
-    vim.cmd([[
-			function OpenMarkdownPreview (url)
-				execute "silent ! firefox --new-window " . a:url
-			endfunction
-			]])
-    vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
+  "selimacerbas/markdown-preview.nvim",
+  dependencies = { "selimacerbas/live-server.nvim" },
+  config = function()
+    require("markdown_preview").setup({
+      -- all optional; sane defaults shown
+      port = 8421,
+      open_browser = true,
+      debounce_ms = 300,
+    })
   end,
   ft = { "markdown" },
-  keys = { { "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown [P]review" } },
+  keys = { { "<leader>mp", "<cmd>MarkdownPreview<cr>", desc = "Markdown [P]review" } },
 }

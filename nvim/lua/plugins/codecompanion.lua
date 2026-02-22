@@ -9,6 +9,14 @@ return {
   opts = {
     display = { diff = { enabled = false } },
 
+    prompt_library = {
+      markdown = {
+        dirs = {
+          vim.fn.getcwd() .. "/.prompts",
+        },
+      },
+    },
+
     opts = {
       log_level = "DEBUG",
     },
@@ -19,6 +27,12 @@ return {
         adapter = "deepseek",
         model = "deepseek-reasoner",
         show_token_count = true,
+        opts = {
+          system_prompt = function(ctx)
+            local system_prompts_manager = require("ai.system_prompts_manager")
+            return system_prompts_manager.get_system_prompt_fn()(ctx)
+          end,
+        },
         keymaps = {
           close = { modes = { n = "q", i = "<C-c>" } },
           stop = { modes = { n = "<leader>cs", i = "<C-s>" } },
@@ -40,5 +54,12 @@ return {
   keys = {
     { "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", desc = "[C]odeCompanion[C]hat" },
     { "<leader>ca", "<cmd>CodeCompanionActions<cr>", desc = "[C]odeCompanion[A]ctions" },
+    {
+      "<leader>cp",
+      function()
+        require("ai.system_prompts_manager").select_system_prompt()
+      end,
+      desc = "[C]odeCompanion[P]rompt select",
+    },
   },
 }
