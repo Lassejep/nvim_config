@@ -47,4 +47,9 @@ vim.lsp.config("*", {
   },
 })
 
-require("lazy_init")
+require("lsp")
+require("git")
+require("qol")
+require("nav")
+require("style")
+require("ai")
