@@ -28,7 +28,9 @@ require("conform").setup({
   format_on_save = { timeout_ms = 500, async = false },
 })
 
-require("fidget").setup()
+require("fidget").setup({
+  notification = { override_vim_notify = true },
+})
 
 local lint = require("lint")
 lint.linters_by_ft = { python = { "mypy" } }
@@ -43,7 +45,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextCh
 require("blink.cmp").setup({
   keymap = { preset = "default" },
   appearance = { nerd_font_variant = "mono" },
-  completion = { documentation = { auto_show = false } },
+  completion = { documentation = { auto_show = true, auto_show_delay_ms = 200 } },
+  signature = { enabled = true },
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
   },
@@ -51,6 +54,7 @@ require("blink.cmp").setup({
 })
 
 require("nvim-treesitter").setup()
+require("nvim-treesitter").install({ "yaml", "html", "python", "lua", "cpp", "c", "markdown", "latex" })
 
 vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "LSP: [G]oto [D]efinition" })
 vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { desc = "LSP: [G]oto [R]eferences" })
