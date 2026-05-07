@@ -43,7 +43,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextCh
 })
 
 require("blink.cmp").setup({
-  keymap = { preset = "default" },
+  keymap = {
+    preset = "default",
+    ["<C-k>"] = {}, -- Stops digraph mode from being overwritten
+  },
   appearance = { nerd_font_variant = "mono" },
   completion = { documentation = { auto_show = true, auto_show_delay_ms = 200 } },
   signature = { enabled = true },
