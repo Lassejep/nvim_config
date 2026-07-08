@@ -47,6 +47,10 @@ vim.lsp.config("*", {
   },
 })
 
+vim.api.nvim_create_user_command("PackUpdate", function()
+  vim.pack.update()
+end, {})
+
 require("lsp")
 require("git")
 require("qol")
